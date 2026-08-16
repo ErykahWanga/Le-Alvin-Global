@@ -1,0 +1,224 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * LeAlvin Global design system.
+ * Premium East African coffee trade: espresso, cream, gold, estate green.
+ * All colors in oklch. Never hardcode colors in components.
+ */
+
+@theme inline {
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "DM Sans", system-ui, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+
+  /* Brand surfaces */
+  --color-espresso: var(--espresso);
+  --color-espresso-foreground: var(--espresso-foreground);
+  --color-espresso-muted: var(--espresso-muted);
+  --color-gold: var(--gold);
+  --color-gold-foreground: var(--gold-foreground);
+  --color-estate: var(--estate);
+  --color-clay: var(--clay);
+  --color-sand: var(--sand);
+}
+
+:root {
+  --radius: 0.25rem;
+
+  --background: oklch(0.983 0.011 88);
+  --foreground: oklch(0.235 0.028 46);
+  --card: oklch(0.995 0.006 90);
+  --card-foreground: oklch(0.235 0.028 46);
+  --popover: oklch(0.995 0.006 90);
+  --popover-foreground: oklch(0.235 0.028 46);
+  --primary: oklch(0.3 0.05 44);
+  --primary-foreground: oklch(0.97 0.012 88);
+  --secondary: oklch(0.945 0.016 86);
+  --secondary-foreground: oklch(0.3 0.05 44);
+  --muted: oklch(0.945 0.016 86);
+  --muted-foreground: oklch(0.5 0.024 55);
+  --accent: oklch(0.79 0.115 80);
+  --accent-foreground: oklch(0.21 0.03 46);
+  --destructive: oklch(0.55 0.2 27);
+  --destructive-foreground: oklch(0.98 0.01 88);
+  --border: oklch(0.885 0.018 84);
+  --input: oklch(0.885 0.018 84);
+  --ring: oklch(0.79 0.115 80);
+
+  --espresso: oklch(0.185 0.024 44);
+  --espresso-foreground: oklch(0.955 0.014 88);
+  --espresso-muted: oklch(0.72 0.02 70);
+  --gold: oklch(0.79 0.115 80);
+  --gold-foreground: oklch(0.19 0.026 46);
+  --estate: oklch(0.46 0.07 150);
+  --clay: oklch(0.55 0.1 45);
+  --sand: oklch(0.93 0.026 84);
+
+  --gradient-hero: linear-gradient(
+    180deg,
+    color-mix(in oklab, var(--espresso) 25%, transparent) 0%,
+    color-mix(in oklab, var(--espresso) 55%, transparent) 55%,
+    var(--espresso) 100%
+  );
+  --gradient-gold: linear-gradient(
+    100deg,
+    color-mix(in oklab, var(--gold) 70%, white) 0%,
+    var(--gold) 45%,
+    color-mix(in oklab, var(--gold) 70%, black) 100%
+  );
+  --shadow-elevated: 0 30px 70px -30px color-mix(in oklab, var(--espresso) 45%, transparent);
+  --shadow-pack: 0 60px 90px -40px color-mix(in oklab, var(--espresso) 70%, transparent);
+}
+
+.dark {
+  --background: oklch(0.165 0.022 44);
+  --foreground: oklch(0.955 0.014 88);
+  --card: oklch(0.215 0.025 45);
+  --card-foreground: oklch(0.955 0.014 88);
+  --popover: oklch(0.215 0.025 45);
+  --popover-foreground: oklch(0.955 0.014 88);
+  --primary: oklch(0.79 0.115 80);
+  --primary-foreground: oklch(0.19 0.026 46);
+  --secondary: oklch(0.26 0.026 45);
+  --secondary-foreground: oklch(0.955 0.014 88);
+  --muted: oklch(0.26 0.026 45);
+  --muted-foreground: oklch(0.74 0.02 70);
+  --accent: oklch(0.79 0.115 80);
+  --accent-foreground: oklch(0.19 0.026 46);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 16%);
+  --sand: oklch(0.26 0.026 45);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+  }
+}
+
+@utility font-display {
+  font-family: var(--font-display);
+}
+
+@utility text-balance-tight {
+  text-wrap: balance;
+}
+
+/* Small caps eyebrow label used across sections */
+@utility eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+@utility gold-rule {
+  background: var(--gradient-gold);
+  height: 1px;
+  width: 3.5rem;
+}
+
+@utility surface-espresso {
+  background-color: var(--espresso);
+  color: var(--espresso-foreground);
+}
+
+@utility shadow-elevated {
+  box-shadow: var(--shadow-elevated);
+}
+
+@utility shadow-pack {
+  box-shadow: var(--shadow-pack);
+}
+
+/* Cinematic coffee-bean field */
+@keyframes bean-drift {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  25% {
+    transform: translate3d(2.5vw, -3vh, 0);
+  }
+  50% {
+    transform: translate3d(-1.5vw, -6vh, 0);
+  }
+  75% {
+    transform: translate3d(-3vw, -2vh, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes bean-tumble {
+  0% {
+    rotate: 0deg;
+    scale: 1;
+  }
+  50% {
+    rotate: 180deg;
+    scale: 0.92;
+  }
+  100% {
+    rotate: 360deg;
+    scale: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [class*="bean"] {
+    animation: none !important;
+  }
+}
