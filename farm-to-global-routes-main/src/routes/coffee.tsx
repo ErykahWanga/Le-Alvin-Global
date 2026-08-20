@@ -2,9 +2,11 @@ import { Link, createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 
 import greenCoffee from "@/assets/green-coffee.jpg";
+import retailFlyer from "@/assets/lealvin-coffee-flyer.png";
+import retailVideo from "@/assets/lealvin-coffee-retail.mp4";
 import { BeanField } from "@/components/site/BeanField";
 import { PageHero } from "@/components/site/PageHero";
-import { grades, products } from "@/data/site";
+import { company, grades, products } from "@/data/site";
 
 export const Route = createFileRoute("/coffee")({
   head: () => ({
@@ -127,6 +129,62 @@ function Coffee() {
           </div>
         </section>
       </div>
+
+      <section className="relative bg-sand py-24 lg:py-32">
+        <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 lg:grid-cols-2 lg:px-10">
+          <div className="relative mx-auto w-full max-w-xs sm:max-w-sm">
+            <video
+              src={retailVideo}
+              autoPlay
+              loop
+              muted
+              playsInline
+              aria-label="Le-Alvin Coffee Dark Roast and Medium Roast retail pouches"
+              className="aspect-9/16 w-full rounded-sm object-cover shadow-elevated"
+            />
+            <img
+              src={retailFlyer}
+              alt="Le-Alvin Coffee retail flyer — Dark Roast and Medium Roast, 100% Arabica"
+              loading="lazy"
+              width={672}
+              height={1581}
+              className="absolute -right-8 -bottom-10 hidden w-32 rounded-sm shadow-elevated ring-4 ring-background sm:block lg:-right-10 lg:w-40"
+            />
+          </div>
+          <div>
+            <p className="eyebrow text-clay">Le-Alvin Coffee — Retail Line</p>
+            <h2 className="mt-5 max-w-xl font-display text-4xl leading-[1.05] sm:text-5xl">
+              The same coffee, roasted and packed for your cup.
+            </h2>
+            <div className="gold-rule mt-8" />
+            <p className="mt-8 text-sm leading-relaxed text-muted-foreground lg:text-base">
+              Beyond bulk export, we roast, pack and deliver under our own Le-Alvin Coffee label
+              — Dark Roast and Medium Roast, 100% Arabica, prepared to the same standard as every
+              export lot and sealed in retail-ready pouches.
+            </p>
+            <p className="mt-6 font-display text-2xl text-clay">{company.slogan}</p>
+            <ul className="mt-8 space-y-3 text-sm text-muted-foreground">
+              {[
+                "Dark Roast & Medium Roast, ground or whole bean",
+                "250g / 500g / 1kg retail pouches, private label available",
+                "Fresh home cup deliveries for homes, offices and hospitality",
+                "Licensed by the Coffee Board of Kenya",
+              ].map((item) => (
+                <li key={item} className="flex gap-3">
+                  <span className="mt-2 size-1.5 shrink-0 rounded-full bg-accent" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <Link
+              to="/contact"
+              className="mt-10 inline-block rounded-sm bg-gold px-7 py-4 text-[0.7rem] font-semibold tracking-[0.2em] text-gold-foreground uppercase transition-opacity hover:opacity-90"
+            >
+              Order Le-Alvin Coffee
+            </Link>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
