@@ -5,7 +5,7 @@ import beansAsset from "@/assets/beans-texture.jpg.asset.json";
 import profile from "@/assets/lealvin-company-profile.pdf";
 import { PageHero } from "@/components/site/PageHero";
 import { QuoteForm } from "@/components/site/QuoteForm";
-import { company } from "@/data/site";
+import { company, departmentEmails } from "@/data/site";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -54,11 +54,12 @@ function Contact() {
             <h3 className="eyebrow text-muted-foreground">Direct contact</h3>
             <ul className="mt-6 space-y-4 text-sm">
               {company.phones.map((phone) => (
-                <li key={phone} className="flex items-center gap-3">
+                <li key={phone.number} className="flex items-center gap-3">
                   <Phone className="size-4 text-accent" />
-                  <a href={`tel:${phone.replace(/\s/g, "")}`} className="hover:text-clay">
-                    {phone}
+                  <a href={`tel:${phone.number.replace(/\s/g, "")}`} className="hover:text-clay">
+                    {phone.number}
                   </a>
+                  <span className="text-xs text-muted-foreground">{phone.label}</span>
                 </li>
               ))}
               <li className="flex items-center gap-3">
@@ -78,7 +79,11 @@ function Contact() {
               <p className="mt-1 text-muted-foreground">
                 {company.ceoTitle}: {company.ceo}
               </p>
-              <p className="mt-1 text-muted-foreground">Nairobi, Kenya · {company.website}</p>
+              <p className="mt-1 text-muted-foreground">{company.address.building}</p>
+              <p className="mt-1 text-muted-foreground">
+                {company.address.poBox}, {company.address.city}
+              </p>
+              <p className="mt-1 text-muted-foreground">{company.website}</p>
             </div>
 
             <a
@@ -90,6 +95,28 @@ function Contact() {
               Download company profile
             </a>
           </aside>
+        </div>
+      </section>
+
+      <section className="bg-sand py-24 lg:py-32">
+        <div className="mx-auto max-w-7xl px-5 lg:px-10">
+          <p className="eyebrow text-clay">Department Directory</p>
+          <h2 className="mt-5 max-w-2xl font-display text-3xl leading-[1.1] sm:text-4xl">
+            Reach the right desk directly.
+          </h2>
+          <div className="mt-12 grid gap-px overflow-hidden rounded-sm border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
+            {departmentEmails.map((dept) => (
+              <div key={dept.email} className="bg-card p-6">
+                <p className="text-sm text-foreground">{dept.label}</p>
+                <a
+                  href={`mailto:${dept.email}`}
+                  className="mt-2 inline-block text-xs text-muted-foreground hover:text-clay"
+                >
+                  {dept.email}
+                </a>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </>

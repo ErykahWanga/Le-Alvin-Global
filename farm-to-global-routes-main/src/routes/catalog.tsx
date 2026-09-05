@@ -42,7 +42,7 @@ function specSheet(item: CatalogItem) {
   return [
     `${company.brand} — PRODUCT SPECIFICATION SHEET`,
     `${company.legalName} · ${company.website} · ${company.email}`,
-    `Tel: ${company.phones.join(" / ")}`,
+    `Tel: ${company.phones.map((phone) => phone.number).join(" / ")}`,
     "",
     `SKU:              ${item.sku}`,
     `Product:          ${item.name}`,

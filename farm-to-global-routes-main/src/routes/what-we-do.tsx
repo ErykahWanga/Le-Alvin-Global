@@ -1,9 +1,10 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
 
+import greenCoffee from "@/assets/green-coffee.jpg";
 import logistics from "@/assets/logistics.jpg";
 import tasteLab from "@/assets/taste-lab.jpg";
 import { PageHero } from "@/components/site/PageHero";
-import { quality, services } from "@/data/site";
+import { quality, services, warehouse } from "@/data/site";
 
 export const Route = createFileRoute("/what-we-do")({
   head: () => ({
@@ -110,12 +111,44 @@ function WhatWeDo() {
         </div>
       </section>
 
+      <section className="bg-background py-24 lg:py-32">
+        <div className="mx-auto grid max-w-7xl gap-14 px-5 lg:grid-cols-2 lg:items-center lg:px-10">
+          <img
+            src={greenCoffee}
+            alt="Jute sacks of green coffee stacked in the LeAlvin warehouse"
+            loading="lazy"
+            width={1280}
+            height={960}
+            className="aspect-4/3 w-full rounded-sm object-cover"
+          />
+          <div>
+            <p className="eyebrow text-clay">Our Warehouse</p>
+            <h2 className="mt-5 font-display text-3xl leading-[1.1] sm:text-4xl">
+              Bulk-ready storage, right up to loading.
+            </h2>
+            <p className="mt-6 text-sm leading-relaxed text-muted-foreground lg:text-base">
+              Coffee is bulked, palletised and stored under supervision at our Nairobi warehouse
+              until it is ready for grading, sampling and loading — keeping every lot traceable
+              from intake to container.
+            </p>
+            <ul className="mt-10 divide-y divide-border border-y border-border">
+              {warehouse.map((item) => (
+                <li key={item.title} className="py-5">
+                  <p className="text-lg">{item.title}</p>
+                  <p className="mt-1 text-sm text-muted-foreground">{item.body}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
       <section className="surface-espresso py-24 lg:py-32">
         <div className="mx-auto grid max-w-7xl gap-14 px-5 lg:grid-cols-2 lg:items-center lg:px-10">
           <div>
-            <p className="eyebrow text-gold">Logistics</p>
+            <p className="eyebrow text-gold">Delivery, Timeliness & Logistics</p>
             <h2 className="mt-5 font-display text-3xl leading-[1.1] sm:text-4xl">
-              Delivered to your port of destination.
+              Delivered to your port of destination, on time.
             </h2>
             <p className="mt-6 text-sm leading-relaxed text-espresso-muted">
               Our logistics team works with international freight partners, including Africa Global
@@ -126,7 +159,7 @@ function WhatWeDo() {
               {[
                 { title: "Documentation", body: "Export paperwork prepared and checked" },
                 { title: "Freight", body: "Bookings coordinated with partners" },
-                { title: "Delivery", body: "To your named port of destination" },
+                { title: "Delivery", body: "To your named port of destination, on schedule" },
               ].map((item) => (
                 <div key={item.title} className="bg-espresso p-6">
                   <p className="text-sm text-espresso-foreground">{item.title}</p>

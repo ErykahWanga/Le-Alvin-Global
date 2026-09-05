@@ -50,10 +50,10 @@ export function SiteFooter() {
           <h3 className="eyebrow text-gold">Contact</h3>
           <ul className="mt-6 space-y-4 text-sm text-espresso-muted">
             {company.phones.map((phone) => (
-              <li key={phone} className="flex items-center gap-3">
+              <li key={phone.number} className="flex items-center gap-3">
                 <Phone className="size-4 shrink-0 text-gold" />
-                <a href={`tel:${phone.replace(/\s/g, "")}`} className="hover:text-gold">
-                  {phone}
+                <a href={`tel:${phone.number.replace(/\s/g, "")}`} className="hover:text-gold">
+                  {phone.number}
                 </a>
               </li>
             ))}
@@ -67,9 +67,13 @@ export function SiteFooter() {
                 {company.email}
               </a>
             </li>
-            <li className="flex items-center gap-3">
-              <MapPin className="size-4 shrink-0 text-gold" />
-              <span>Nairobi, Kenya</span>
+            <li className="flex items-start gap-3">
+              <MapPin className="mt-0.5 size-4 shrink-0 text-gold" />
+              <span>
+                {company.address.building}
+                <br />
+                {company.address.poBox}, {company.address.city}
+              </span>
             </li>
           </ul>
         </div>

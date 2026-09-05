@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import estateAsset from "@/assets/maggie-estate.jpg";
 import { PageHero } from "@/components/site/PageHero";
-import { audiences, company } from "@/data/site";
+import { audiences, awards, company, licences } from "@/data/site";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -29,7 +29,7 @@ const facts = [
   { label: "Trading identity", value: company.tradingName },
   { label: company.ceoTitle, value: company.ceo },
   { label: "Licence", value: "Registered coffee dealer, Kenya" },
-  { label: "Head office", value: "Nairobi, Kenya" },
+  { label: "Head office", value: `${company.address.building}, ${company.address.city}` },
   { label: "Website", value: company.website },
 ];
 
@@ -86,6 +86,23 @@ function About() {
         </div>
       </section>
 
+      <section className="bg-sand py-24 lg:py-32">
+        <div className="mx-auto max-w-7xl px-5 lg:px-10">
+          <p className="eyebrow text-clay">Licences & Certification</p>
+          <h2 className="mt-5 max-w-2xl font-display text-3xl leading-[1.1] sm:text-4xl">
+            Registered, licensed and compliant.
+          </h2>
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {licences.map((item) => (
+              <div key={item.title} className="rounded-sm border border-border bg-card p-6">
+                <h3 className="text-lg">{item.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="surface-espresso py-24 lg:py-32">
         <div className="mx-auto max-w-7xl px-5 lg:px-10">
           <p className="eyebrow text-gold">Who we supply</p>
@@ -99,6 +116,26 @@ function About() {
               </li>
             ))}
           </ul>
+        </div>
+      </section>
+
+      <section className="bg-background py-24 lg:py-32">
+        <div className="mx-auto max-w-7xl px-5 lg:px-10">
+          <p className="eyebrow text-clay">Award Winning</p>
+          <h2 className="mt-5 max-w-2xl font-display text-3xl leading-[1.1] sm:text-4xl">
+            Recognised for quality and entrepreneurship.
+          </h2>
+          <div className="mt-12 grid gap-6 lg:grid-cols-2">
+            {awards.map((award) => (
+              <article key={award.title} className="rounded-sm border border-border bg-card p-8">
+                <p className="eyebrow text-muted-foreground">
+                  {award.issuer} · {award.year}
+                </p>
+                <h3 className="mt-3 text-xl">{award.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{award.body}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
     </>

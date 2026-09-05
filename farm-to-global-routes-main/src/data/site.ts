@@ -4,13 +4,87 @@ export const company = {
   tradingName: "Le-Alvin Coffee",
   tagline: "African Origin. Global Reach. Exceptional Coffee.",
   slogan: "Coffee Is Us. Quality Is Us.",
-  ceo: "Margaret Njeri",
-  ceoTitle: "CEO / Managing Director",
+  ceo: "Margaret L. Njeri",
+  ceoTitle: "C.E.O / Managing Director",
   email: "info@lealvins.com",
   website: "www.lealvins.com",
-  phones: ["+254 722 152 087", "+254 722 646 290"],
+  phones: [
+    { label: "Direct / WhatsApp", number: "+254 722 555 545" },
+    { label: "WhatsApp", number: "+254 722 152 087" },
+    { label: "WhatsApp", number: "+254 722 646 290" },
+  ],
   office: "0783 180 770",
+  address: {
+    building: "J.K.I.A Freight Terminals Building",
+    poBox: "P.O. Box 51343-00100",
+    city: "Nairobi, Kenya",
+  },
 };
+
+/** Department contact list — shown on the Contact page and in the footer. */
+export const departmentEmails = [
+  { label: "Managing Director", email: "margaret@lealvins.com" },
+  { label: "Baiba", email: "baiba@lealvins.com" },
+  { label: "Alvin Roy", email: "alvinroy@lealvins.com" },
+  { label: "Accounts", email: "accounts@lealvins.com" },
+  { label: "Administration", email: "administration@lealvins.com" },
+  { label: "Warehouse", email: "warehouse@lealvins.com" },
+  { label: "Logistics", email: "logistics@lealvins.com" },
+  { label: "General Info", email: "info@lealvins.com" },
+  { label: "Transport", email: "transport@lealvins.com" },
+  { label: "Quality Control", email: "qualitycontrol@lealvins.com" },
+  { label: "Samples Office", email: "samplesoffice@lealvins.com" },
+  { label: "Sales Department", email: "salesdepartment@lealvins.com" },
+] as const;
+
+export const licences = [
+  {
+    title: "Registered Company",
+    body: "Le Alvin Enterprises Limited is registered under the Companies Act, CAP 486 of the Laws of Kenya.",
+  },
+  {
+    title: "Licensed Coffee Dealer",
+    body: "Licensed by the Coffee Board of Kenya / Coffee Directorate, AFA, to act as a coffee dealer sourcing at auction and handling exports and imports.",
+  },
+  {
+    title: "KEBS Standardization Mark",
+    body: "Products and processes meet Kenya Bureau of Standards requirements.",
+  },
+  {
+    title: "Coffee Kenya — So Rich, So Kenyan",
+    body: "Recognised under the national Coffee Kenya origin mark.",
+  },
+] as const;
+
+export const awards = [
+  {
+    title: "Women Entrepreneurs Award",
+    issuer: "Ministry of Agriculture, Livestock and Fisheries",
+    year: "2018",
+    body: "Honouring Margaret Lucy Ndei, Director, Le Alvin Coffee, for successful entrepreneurship in the coffee business.",
+  },
+  {
+    title: "Most Preferred Coffee Beans — First Runner-Up",
+    issuer: "Kenya Beverage Excellence Awards",
+    year: "2022",
+    body: "Awarded to Le-Alvin Enterprise Coffee at the Kenya Beverage Excellence Awards, Ole Sereni Hotel, Nairobi, November 2022.",
+  },
+] as const;
+
+export const warehouse = [
+  {
+    title: "Bonded Storage",
+    body: "Green coffee held in stacked, palletised jute bags at our Nairobi warehouse, ready for grading and shipment.",
+  },
+  {
+    title: "Stock Rotation",
+    body: "Lots tracked and rotated so every shipment leaves in the condition it was cup-cleared.",
+  },
+  {
+    title: "Container Loading",
+    body: "On-site loading directly into containers, supervised at every stage.",
+  },
+] as const;
 
 export const navigation = [
   { label: "Home", to: "/" },

@@ -3,13 +3,24 @@ import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
 
 import estateAsset from "@/assets/maggie-estate.jpg";
+import farmersAsset from "@/assets/farmers.jpg";
 import greenCoffee from "@/assets/green-coffee.jpg";
 import hero from "@/assets/hero-estate.jpg";
+import logisticsAsset from "@/assets/logistics.jpg";
 import tasteLab from "@/assets/taste-lab.jpg";
 import { GlobalReach } from "@/components/site/GlobalReach";
 import { JourneySection } from "@/components/site/JourneySection";
 import { ScrollPack } from "@/components/site/ScrollPack";
-import { company, products, quality, services, sustainability } from "@/data/site";
+import {
+  awards,
+  company,
+  licences,
+  products,
+  quality,
+  services,
+  sustainability,
+  warehouse,
+} from "@/data/site";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -144,63 +155,77 @@ function Home() {
         </div>
       </section>
 
-      <ScrollPack />
-
-      {/* Products */}
+      {/* Licences */}
       <section className="bg-sand py-24 lg:py-32">
         <div className="mx-auto max-w-7xl px-5 lg:px-10">
-          <div className="flex flex-wrap items-end justify-between gap-6">
-            <div>
-              <p className="eyebrow text-clay">Our Coffee</p>
-              <h2 className="mt-5 max-w-xl font-display text-4xl leading-[1.05] sm:text-5xl">
-                Green and roasted coffee, graded to your brief.
-              </h2>
-            </div>
-            <Link
-              to="/coffee"
-              className="group inline-flex items-center gap-2 border-b border-foreground/30 pb-1 text-[0.7rem] font-semibold tracking-[0.2em] uppercase"
-            >
-              All products
-              <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-            </Link>
-          </div>
-
-          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {products.map((product, index) => (
-              <motion.article
-                key={product.slug}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.5, delay: (index % 3) * 0.08 }}
-                className="group flex flex-col justify-between rounded-sm border border-border bg-card p-8 transition-colors hover:border-accent"
-              >
-                <div>
-                  <h3 className="text-2xl">{product.name}</h3>
-                  <p className="mt-2 text-xs tracking-wide text-muted-foreground">
-                    {product.origin}
-                  </p>
-                  <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
-                    {product.note}
-                  </p>
-                </div>
-                <div className="mt-7 flex flex-wrap gap-2">
-                  {product.grades.slice(0, 5).map((grade) => (
-                    <span
-                      key={grade}
-                      className="rounded-sm bg-secondary px-2.5 py-1 text-[0.65rem] tracking-[0.14em] text-secondary-foreground uppercase"
-                    >
-                      {grade}
-                    </span>
-                  ))}
-                </div>
-              </motion.article>
+          <p className="eyebrow text-clay">Licences & Certification</p>
+          <h2 className="mt-5 max-w-2xl font-display text-4xl leading-[1.05] sm:text-5xl">
+            Registered, licensed and compliant.
+          </h2>
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {licences.map((item) => (
+              <div key={item.title} className="rounded-sm border border-border bg-card p-6">
+                <h3 className="text-lg">{item.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.body}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      <JourneySection />
+      {/* What We Do & Who We Are */}
+      <section className="bg-background py-24 lg:py-32">
+        <div className="mx-auto max-w-7xl px-5 lg:px-10">
+          <p className="eyebrow text-clay">What We Do &amp; Who We Are</p>
+          <h2 className="mt-5 max-w-2xl font-display text-4xl leading-[1.05] sm:text-5xl">
+            Sourcing, preparation and supply — handled end to end.
+          </h2>
+          <p className="mt-6 max-w-2xl text-sm leading-relaxed text-muted-foreground lg:text-base">
+            {company.legalName} is a licensed Kenyan coffee dealer — not a coffee shop, but a coffee
+            trading, processing and export business operating across the full length of the chain.
+          </p>
+          <div className="mt-14 grid gap-px overflow-hidden rounded-sm border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
+            {services.map((service) => (
+              <div key={service.title} className="bg-card p-8">
+                <h3 className="text-xl">{service.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{service.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Our Farm */}
+      <section className="bg-sand py-24 lg:py-32">
+        <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 lg:grid-cols-2 lg:px-10">
+          <img
+            src={farmersAsset}
+            alt="Maggie Estate coffee farm and farmers in Kenya"
+            loading="lazy"
+            width={1280}
+            height={960}
+            className="aspect-4/3 w-full rounded-sm object-cover shadow-elevated lg:order-2"
+          />
+          <div>
+            <p className="eyebrow text-clay">Our Farm</p>
+            <h2 className="mt-5 font-display text-4xl leading-[1.05] sm:text-5xl">
+              Maggie Estate — where our coffee story starts.
+            </h2>
+            <div className="gold-rule mt-8" />
+            <p className="mt-8 text-sm leading-relaxed text-muted-foreground lg:text-base">
+              We do not only buy coffee from others. At Maggie Estate we grow, harvest, process and
+              market our own produce, so we understand a lot before it is ever offered to a buyer.
+            </p>
+            <Link
+              to="/farm"
+              className="group mt-8 inline-flex items-center gap-2 border-b border-foreground/30 pb-1 text-[0.7rem] font-semibold tracking-[0.2em] uppercase"
+            >
+              Visit our farm
+              <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {/* Quality */}
       <section className="surface-espresso py-24 lg:py-32">
@@ -235,23 +260,66 @@ function Home() {
         </div>
       </section>
 
-      {/* Services */}
-      <section className="bg-background py-24 lg:py-32">
+      <ScrollPack />
+
+      {/* Products & Availability */}
+      <section className="bg-sand py-24 lg:py-32">
         <div className="mx-auto max-w-7xl px-5 lg:px-10">
-          <p className="eyebrow text-clay">What We Do</p>
-          <h2 className="mt-5 max-w-2xl font-display text-4xl leading-[1.05] sm:text-5xl">
-            Sourcing, preparation and supply — handled end to end.
-          </h2>
-          <div className="mt-14 grid gap-px overflow-hidden rounded-sm border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((service) => (
-              <div key={service.title} className="bg-card p-8">
-                <h3 className="text-xl">{service.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{service.body}</p>
-              </div>
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <div>
+              <p className="eyebrow text-clay">Our Coffee &amp; Availability</p>
+              <h2 className="mt-5 max-w-xl font-display text-4xl leading-[1.05] sm:text-5xl">
+                Green and roasted coffee, graded to your brief.
+              </h2>
+            </div>
+            <Link
+              to="/coffee"
+              className="group inline-flex items-center gap-2 border-b border-foreground/30 pb-1 text-[0.7rem] font-semibold tracking-[0.2em] uppercase"
+            >
+              All products
+              <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
+
+          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {products.map((product, index) => (
+              <motion.article
+                key={product.slug}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.5, delay: (index % 3) * 0.08 }}
+                className="group flex flex-col justify-between rounded-sm border border-border bg-card p-8 transition-colors hover:border-accent"
+              >
+                <div>
+                  <h3 className="text-2xl">{product.name}</h3>
+                  <p className="mt-2 text-xs tracking-wide text-muted-foreground">
+                    {product.origin}
+                  </p>
+                  <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
+                    {product.note}
+                  </p>
+                  <p className="mt-4 text-xs tracking-wide text-clay">
+                    Availability: {product.availability}
+                  </p>
+                </div>
+                <div className="mt-7 flex flex-wrap gap-2">
+                  {product.grades.slice(0, 5).map((grade) => (
+                    <span
+                      key={grade}
+                      className="rounded-sm bg-secondary px-2.5 py-1 text-[0.65rem] tracking-[0.14em] text-secondary-foreground uppercase"
+                    >
+                      {grade}
+                    </span>
+                  ))}
+                </div>
+              </motion.article>
             ))}
           </div>
         </div>
       </section>
+
+      <JourneySection />
 
       <GlobalReach />
 
@@ -268,6 +336,97 @@ function Home() {
                 <h3 className="text-2xl">{item.title}</h3>
                 <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{item.body}</p>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Our Warehouse */}
+      <section className="bg-background py-24 lg:py-32">
+        <div className="mx-auto grid max-w-7xl gap-14 px-5 lg:grid-cols-2 lg:items-center lg:px-10">
+          <img
+            src={greenCoffee}
+            alt="Jute sacks of green coffee stacked in the LeAlvin warehouse"
+            loading="lazy"
+            width={1280}
+            height={960}
+            className="aspect-4/3 w-full rounded-sm object-cover"
+          />
+          <div>
+            <p className="eyebrow text-clay">Our Warehouse</p>
+            <h2 className="mt-5 font-display text-4xl leading-[1.05] sm:text-5xl">
+              Bulk-ready storage, right up to loading.
+            </h2>
+            <p className="mt-6 text-sm leading-relaxed text-muted-foreground lg:text-base">
+              Coffee is bulked, palletised and stored under supervision at our Nairobi warehouse
+              until it is graded, sampled and loaded — keeping every lot traceable from intake to
+              container.
+            </p>
+            <ul className="mt-10 divide-y divide-border border-y border-border">
+              {warehouse.map((item) => (
+                <li key={item.title} className="py-4">
+                  <p className="text-lg">{item.title}</p>
+                  <p className="mt-1 text-sm text-muted-foreground">{item.body}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Delivery, Timeliness & Logistics */}
+      <section className="surface-espresso py-24 lg:py-32">
+        <div className="mx-auto grid max-w-7xl gap-14 px-5 lg:grid-cols-2 lg:items-center lg:px-10">
+          <div>
+            <p className="eyebrow text-gold">Delivery, Timeliness &amp; Logistics</p>
+            <h2 className="mt-5 font-display text-4xl leading-[1.05] sm:text-5xl">
+              Delivered to your port of destination, on time.
+            </h2>
+            <p className="mt-6 text-sm leading-relaxed text-espresso-muted">
+              Our logistics team works with international freight partners, including Africa Global
+              Logistics, to keep documentation, bookings and sailings aligned. The commitment is
+              simple: timely deliveries, to the destination named in the contract.
+            </p>
+            <div className="mt-10 grid gap-px overflow-hidden rounded-sm border border-espresso-foreground/10 bg-espresso-foreground/10 sm:grid-cols-3">
+              {[
+                { title: "Documentation", body: "Export paperwork prepared and checked" },
+                { title: "Freight", body: "Bookings coordinated with partners" },
+                { title: "Delivery", body: "To your named port of destination, on schedule" },
+              ].map((item) => (
+                <div key={item.title} className="bg-espresso p-6">
+                  <p className="text-sm text-espresso-foreground">{item.title}</p>
+                  <p className="mt-1 text-xs text-espresso-muted">{item.body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <img
+            src={logisticsAsset}
+            alt="Shipping containers being loaded at a port"
+            loading="lazy"
+            width={1280}
+            height={960}
+            className="aspect-4/3 w-full rounded-sm object-cover"
+          />
+        </div>
+      </section>
+
+      {/* Awards */}
+      <section className="bg-background py-24 lg:py-32">
+        <div className="mx-auto max-w-7xl px-5 lg:px-10">
+          <p className="eyebrow text-clay">Award Winning</p>
+          <h2 className="mt-5 max-w-2xl font-display text-4xl leading-[1.05] sm:text-5xl">
+            Recognised for quality and entrepreneurship.
+          </h2>
+          <div className="mt-14 grid gap-6 lg:grid-cols-2">
+            {awards.map((award) => (
+              <article key={award.title} className="rounded-sm border border-border bg-card p-8">
+                <p className="eyebrow text-muted-foreground">
+                  {award.issuer} · {award.year}
+                </p>
+                <h3 className="mt-3 text-xl">{award.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{award.body}</p>
+              </article>
             ))}
           </div>
         </div>
