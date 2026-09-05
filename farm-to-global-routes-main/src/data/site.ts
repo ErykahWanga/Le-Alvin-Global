@@ -432,3 +432,31 @@ export const catalog: CatalogItem[] = [
     certification: "Private label & custom packaging available",
   },
 ];
+
+export const faqs = [
+  {
+    question: "Is Le Alvin a licensed coffee dealer?",
+    answer:
+      "Yes. Le Alvin Enterprises Limited is registered under the Companies Act, CAP 486 of the Laws of Kenya, and licensed by the Coffee Board of Kenya / Coffee Directorate, AFA, to source at the Kenyan auction and to export and import coffee.",
+  },
+  {
+    question: "Do you only sell Kenyan coffee?",
+    answer:
+      "Kenyan Arabica is our core origin, sourced through the Kenyan auction and grown on our own Maggie Estate. We also import Arabica from Burundi, Uganda, Tanzania and Ethiopia, and re-export to customer requirement.",
+  },
+  {
+    question: "Which coffee grades do you supply?",
+    answer:
+      "Grades AA, AB, PB, C, TT, T, UG, MH and ML, plus Robusta from Uganda — screens 15, 16, 17 and 18.",
+  },
+  {
+    question: "How do you ensure quality before a lot ships?",
+    answer:
+      "Every lot is cupped in our in-house taste lab by certified liquorers before it ships, so buyers approve the sample cup that matches the shipped coffee.",
+  },
+  {
+    question: "Can you private-label or custom-package our order?",
+    answer:
+      "Yes — private labelling and custom packaging are available across our dark, medium and light roast, ground, whole-bean and instant coffee ranges.",
+  },
+] as const;

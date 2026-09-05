@@ -11,6 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { BackToTop } from "@/components/site/BackToTop";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { Toaster } from "@/components/ui/sonner";
@@ -132,6 +133,7 @@ function RootComponent() {
         <Outlet />
       </main>
       <SiteFooter />
+      <BackToTop />
       <Toaster />
     </QueryClientProvider>
   );

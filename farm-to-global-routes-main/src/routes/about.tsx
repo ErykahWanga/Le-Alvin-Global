@@ -2,7 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import estateAsset from "@/assets/maggie-estate.jpg";
 import { PageHero } from "@/components/site/PageHero";
-import { audiences, awards, company, licences } from "@/data/site";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { audiences, awards, company, faqs, licences } from "@/data/site";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -136,6 +137,27 @@ function About() {
               </article>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="bg-sand py-24 lg:py-32">
+        <div className="mx-auto max-w-3xl px-5 lg:px-10">
+          <p className="eyebrow text-clay">Questions</p>
+          <h2 className="mt-5 font-display text-3xl leading-[1.1] sm:text-4xl">
+            Frequently asked questions.
+          </h2>
+          <Accordion type="single" collapsible className="mt-12">
+            {faqs.map((faq) => (
+              <AccordionItem key={faq.question} value={faq.question} className="border-border">
+                <AccordionTrigger className="font-display text-lg text-foreground hover:no-underline">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-sm leading-relaxed text-muted-foreground">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
       </section>
     </>

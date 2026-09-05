@@ -88,6 +88,9 @@ export function SiteFooter() {
             {company.ceoTitle}: {company.ceo} · {company.website}
           </p>
         </div>
+        <div className="mx-auto max-w-7xl px-5 pb-6 text-xs text-espresso-muted/70 lg:px-10">
+          <p>Designed &amp; built by Erykah Wanga</p>
+          </div>
       </div>
     </footer>
   );

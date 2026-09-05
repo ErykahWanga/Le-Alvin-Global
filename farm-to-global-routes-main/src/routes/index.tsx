@@ -10,6 +10,8 @@ import logisticsAsset from "@/assets/logistics.jpg";
 import tasteLab from "@/assets/taste-lab.jpg";
 import { GlobalReach } from "@/components/site/GlobalReach";
 import { JourneySection } from "@/components/site/JourneySection";
+import { Marquee } from "@/components/site/Marquee";
+import { AnimatedStat } from "@/components/site/AnimatedStat";
 import { ScrollPack } from "@/components/site/ScrollPack";
 import {
   awards,
@@ -109,6 +111,16 @@ function Home() {
         </div>
       </section>
 
+      <Marquee
+        items={[
+          "Coffee Is Us, Quality Is Us",
+          "Licensed Kenyan Coffee Dealer",
+          "Maggie Estate — Our Own Farm",
+          "Certified Liquorers, Cup-Cleared Lots",
+          "Exported Worldwide",
+        ]}
+      />
+
       {/* Introduction */}
       <section className="bg-background py-24 lg:py-32">
         <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 lg:grid-cols-2 lg:px-10">
@@ -126,16 +138,9 @@ function Home() {
             </p>
             <p className="mt-6 font-display text-2xl">{company.slogan}</p>
             <div className="mt-10 grid grid-cols-3 gap-6 border-t border-border pt-8">
-              {[
-                { value: "10+", label: "Coffee grades" },
-                { value: "5", label: "Sourcing origins" },
-                { value: "1", label: "Own estate" },
-              ].map((stat) => (
-                <div key={stat.label}>
-                  <p className="font-display text-3xl text-clay">{stat.value}</p>
-                  <p className="mt-2 text-xs tracking-wide text-muted-foreground">{stat.label}</p>
-                </div>
-              ))}
+              <AnimatedStat value={10} suffix="+" label="Coffee grades" />
+              <AnimatedStat value={5} label="Sourcing origins" />
+              <AnimatedStat value={1} label="Own estate" />
             </div>
           </div>
           <div className="relative">
