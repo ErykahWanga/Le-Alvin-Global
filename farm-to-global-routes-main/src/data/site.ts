@@ -6,8 +6,8 @@ export const company = {
   slogan: "Coffee Is Us. Quality Is Us.",
   ceo: "Margaret L. Njeri",
   ceoTitle: "C.E.O / Managing Director",
-  email: "info@lealvins.com",
-  website: "www.lealvins.com",
+  email: "info@lealvin.com",
+  website: "www.lealvin.com",
   phones: [
     { label: "Direct / WhatsApp", number: "+254 722 555 545" },
     { label: "WhatsApp", number: "+254 722 152 087" },
@@ -23,18 +23,18 @@ export const company = {
 
 /** Department contact list — shown on the Contact page and in the footer. */
 export const departmentEmails = [
-  { label: "Managing Director", email: "margaret@lealvins.com" },
-  { label: "Baiba", email: "baiba@lealvins.com" },
-  { label: "Alvin Roy", email: "alvinroy@lealvins.com" },
-  { label: "Accounts", email: "accounts@lealvins.com" },
-  { label: "Administration", email: "administration@lealvins.com" },
-  { label: "Warehouse", email: "warehouse@lealvins.com" },
+  { label: "Managing Director", email: "margaret@lealvin.com" },
+  { label: "Baiba", email: "baiba@lealvin.com" },
+  { label: "Alvin Roy", email: "alvinroy@lealvin.com" },
+  { label: "Accounts", email: "accounts@lealvin.com" },
+  { label: "Administration", email: "administration@lealvin.com" },
+  { label: "Warehouse", email: "warehouse@lealvin.com" },
   { label: "Logistics", email: "logistics@lealvins.com" },
-  { label: "General Info", email: "info@lealvins.com" },
-  { label: "Transport", email: "transport@lealvins.com" },
-  { label: "Quality Control", email: "qualitycontrol@lealvins.com" },
-  { label: "Samples Office", email: "samplesoffice@lealvins.com" },
-  { label: "Sales Department", email: "salesdepartment@lealvins.com" },
+  { label: "General Info", email: "info@lealvin.com" },
+  { label: "Transport", email: "transport@lealvin.com" },
+  { label: "Quality Control", email: "qualitycontrol@lealvin.com" },
+  { label: "Samples Office", email: "samplesoffice@lealvin.com" },
+  { label: "Sales Department", email: "salesdepartment@lealvin.com" },
 ] as const;
 
 export const licences = [
