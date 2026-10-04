@@ -1,1 +1,0 @@
-var e=`/assets/maggie-estate-Djs1Ag7M.jpg`;export{e as t};

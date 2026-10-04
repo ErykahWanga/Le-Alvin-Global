@@ -1,1 +1,0 @@
-var e=`/assets/taste-lab-fsYcOGXE.jpg`;export{e as t};

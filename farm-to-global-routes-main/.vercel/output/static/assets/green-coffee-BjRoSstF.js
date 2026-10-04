@@ -1,1 +1,0 @@
-var e=`/assets/green-coffee-BsylorsG.jpg`;export{e as t};

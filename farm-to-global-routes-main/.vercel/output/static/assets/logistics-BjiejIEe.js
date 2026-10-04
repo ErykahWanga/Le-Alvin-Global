@@ -1,1 +1,0 @@
-var e=`/assets/logistics-C3mxedls.jpg`;export{e as t};
