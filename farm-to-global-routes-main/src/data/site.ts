@@ -21,6 +21,26 @@ export const company = {
   },
 };
 
+/**
+ * WhatsApp click-to-chat. The number is derived from the first phone labelled
+ * "WhatsApp" above, so changing it in `company.phones` updates the whole site
+ * (floating button, chatbot hand-off, footer and contact page).
+ */
+const whatsappPhone =
+  company.phones.find((phone) => phone.label.includes("WhatsApp"))?.number ?? "+254 722 555 545";
+
+export const whatsapp = {
+  display: whatsappPhone,
+  /** Digits only, international format, as wa.me expects. */
+  number: whatsappPhone.replace(/\D/g, ""),
+  greeting:
+    "Hello LeAlvin Global, I'm contacting you from your website and would like to discuss coffee supply.",
+} as const;
+
+export function whatsappLink(message: string = whatsapp.greeting): string {
+  return `https://wa.me/${whatsapp.number}?text=${encodeURIComponent(message)}`;
+}
+
 /** Department contact list — shown on the Contact page and in the footer. */
 export const departmentEmails = [
   { label: "Managing Director", email: "margaret@lealvin.com" },
