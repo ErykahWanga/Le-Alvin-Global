@@ -5,7 +5,8 @@ import beansAsset from "@/assets/beans-texture.jpg.asset.json";
 import profile from "@/assets/lealvin-company-profile.pdf";
 import { PageHero } from "@/components/site/PageHero";
 import { QuoteForm } from "@/components/site/QuoteForm";
-import { company, departmentEmails } from "@/data/site";
+import { WhatsAppIcon } from "@/components/site/WhatsAppButton";
+import { company, departmentEmails, whatsapp, whatsappLink } from "@/data/site";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -52,6 +53,15 @@ function Contact() {
 
           <aside className="h-fit rounded-sm border border-border bg-card p-8">
             <h3 className="eyebrow text-muted-foreground">Direct contact</h3>
+            <a
+              href={whatsappLink()}
+              target="_blank"
+              rel="noreferrer"
+              className="surface-espresso mt-6 flex items-center justify-center gap-3 rounded-sm px-5 py-4 text-[0.7rem] font-semibold tracking-[0.18em] text-gold uppercase transition-opacity hover:opacity-90"
+            >
+              <WhatsAppIcon className="size-5" />
+              Chat on WhatsApp · {whatsapp.display}
+            </a>
             <ul className="mt-6 space-y-4 text-sm">
               {company.phones.map((phone) => (
                 <li key={phone.number} className="flex items-center gap-3">
