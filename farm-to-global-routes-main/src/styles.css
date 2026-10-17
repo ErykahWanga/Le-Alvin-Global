@@ -85,6 +85,16 @@
   --clay: oklch(0.55 0.1 45);
   --sand: oklch(0.93 0.026 84);
 
+  /* Beanie the coffee bear (chatbot mascot) */
+  --bear-fur: oklch(0.66 0.095 58);
+  --bear-fur-dark: oklch(0.5 0.085 50);
+  --bear-muzzle: oklch(0.9 0.045 80);
+  --bear-ear: oklch(0.8 0.09 32);
+  --bear-blush: oklch(0.76 0.12 28);
+  --bear-ink: oklch(0.22 0.03 46);
+  --bear-cup: oklch(0.975 0.012 88);
+  --bear-coffee: oklch(0.34 0.055 45);
+
   --gradient-hero: linear-gradient(
     180deg,
     color-mix(in oklab, var(--espresso) 25%, transparent) 0%,
@@ -228,6 +238,50 @@
 
 .marquee-track {
   animation: marquee-scroll 32s linear infinite;
+}
+
+/* Beanie mascot fills — colors come from the tokens above */
+.bear-fur {
+  fill: var(--bear-fur);
+}
+.bear-fur-dark {
+  fill: var(--bear-fur-dark);
+}
+.bear-muzzle {
+  fill: var(--bear-muzzle);
+}
+.bear-ear {
+  fill: var(--bear-ear);
+}
+.bear-blush {
+  fill: var(--bear-blush);
+}
+.bear-ink {
+  fill: var(--bear-ink);
+}
+.bear-cup {
+  fill: var(--bear-cup);
+}
+.bear-coffee {
+  fill: var(--bear-coffee);
+}
+.bear-stroke-fur {
+  stroke: var(--bear-fur);
+}
+.bear-stroke-fur-dark {
+  stroke: var(--bear-fur-dark);
+}
+.bear-stroke-cup {
+  stroke: var(--bear-cup);
+}
+.bear-stroke-ink {
+  stroke: var(--bear-ink);
+}
+
+/* Slim scrollbar for the chat window */
+.chat-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in oklab, var(--clay) 45%, transparent) transparent;
 }
 
 @media (prefers-reduced-motion: reduce) {
