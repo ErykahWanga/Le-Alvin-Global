@@ -1,8 +1,10 @@
 import { Link } from "@tanstack/react-router";
 import { Mail, MapPin, Phone } from "lucide-react";
 
+import { WhatsAppIcon } from "@/components/site/WhatsAppButton";
+
 import profile from "@/assets/lealvin-company-profile.pdf";
-import { company, navigation } from "@/data/site";
+import { company, navigation, whatsapp, whatsappLink } from "@/data/site";
 
 export function SiteFooter() {
   return (
@@ -13,9 +15,7 @@ export function SiteFooter() {
             <span className="font-display text-2xl tracking-[0.18em]">LEALVIN</span>
             <span className="eyebrow mt-1 text-gold">Global</span>
           </div>
-          <p className="mt-6 max-w-md font-display text-2xl text-balance-tight">
-            {company.slogan}
-          </p>
+          <p className="mt-6 max-w-md font-display text-2xl text-balance-tight">{company.slogan}</p>
           <p className="mt-4 max-w-md text-sm leading-relaxed text-espresso-muted">
             {company.legalName}, trading as {company.tradingName} — a licensed Kenyan coffee dealer
             sourcing, processing, packaging and exporting East African coffee worldwide.
@@ -60,6 +60,12 @@ export function SiteFooter() {
             <li className="flex items-center gap-3">
               <Phone className="size-4 shrink-0 text-gold" />
               <span>Office {company.office}</span>
+            </li>
+            <li className="flex items-center gap-3">
+              <WhatsAppIcon className="size-4 shrink-0 text-gold" />
+              <a href={whatsappLink()} target="_blank" rel="noreferrer" className="hover:text-gold">
+                Chat on WhatsApp · {whatsapp.display}
+              </a>
             </li>
             <li className="flex items-center gap-3">
               <Mail className="size-4 shrink-0 text-gold" />
