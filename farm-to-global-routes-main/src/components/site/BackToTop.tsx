@@ -23,7 +23,7 @@ export function BackToTop() {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 16, scale: 0.8 }}
           transition={{ duration: 0.25 }}
-          className="fixed right-5 bottom-6 z-40 flex size-12 items-center justify-center rounded-full bg-gold text-gold-foreground shadow-elevated transition-transform hover:-translate-y-1 lg:right-10"
+          className="fixed bottom-6 left-5 z-40 flex size-12 items-center justify-center rounded-full bg-gold text-gold-foreground shadow-elevated transition-transform hover:-translate-y-1 lg:left-10"
         >
           <ArrowUp className="size-5" />
         </motion.button>
